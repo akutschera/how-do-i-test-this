@@ -1,0 +1,18 @@
+
+spring:
+  main:
+    banner-mode: "off"
+  cloud:
+    function:
+      definition: consumeAndLogPersonEvent;convertPersonToAddress
+    stream:
+      bindings:
+        consumeAndLogPersonEvent-in-0:
+          destination: my-topic
+          group: myGroup
+        producePerson-out-0:
+          destination: produceTopic
+        convertPersonToAddress-in-0:
+          destination: throughput-topic
+        convertPersonToAddress-out-0:
+          destination: conversion-output-topic

@@ -1,0 +1,13 @@
+
+spring:
+  main:
+    banner-mode: "off"
+  cloud:
+    function:
+      definition: convertPersonToAddress
+    stream:
+      bindings:
+        convertPersonToAddress-in-0:
+          destination: throughput-topic
+        convertPersonToAddress-out-0:
+          destination: conversion-output-topic

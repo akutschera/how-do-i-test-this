@@ -1,0 +1,11 @@
+spring:
+  main:
+    banner-mode: "off"
+  cloud:
+    function:
+      definition: consumeAndLogPersonEvent
+    stream:
+      bindings:
+        consumeAndLogPersonEvent-in-0:
+          destination: my-topic
+          group: myGroup
