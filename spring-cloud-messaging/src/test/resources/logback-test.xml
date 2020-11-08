@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d [%t] %c{15} %p - %m%n%xEx{full}</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="org.springframework">
+    <level value="WARN" />
+  </logger>
+
+  <logger name="com.github.akutschera">
+    <level value="INFO" />
+  </logger>
+
+  <root level="WARN">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>
