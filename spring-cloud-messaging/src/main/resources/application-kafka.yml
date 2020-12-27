@@ -1,0 +1,14 @@
+
+spring:
+  main:
+    banner-mode: "off"
+  cloud:
+    function:
+      definition: convertPersonToAddress
+    stream:
+      bindings:
+        convertPersonToAddress-in-0:
+          destination: person-in
+          group: essential-for-the-test-with-embedded-kafka
+        convertPersonToAddress-out-0:
+          destination: address-out

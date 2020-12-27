@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Profile;
  * Created by Andreas Kutschera.
  */
 @Configuration
-@Profile( {"function", "all"} )
+@Profile( {"function", "kafka", "all"} )
 public class FunctionBean {
     @Bean
     public Function<Person, Address> convertPersonToAddress() {
