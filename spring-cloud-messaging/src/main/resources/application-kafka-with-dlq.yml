@@ -1,0 +1,22 @@
+
+spring:
+  main:
+    banner-mode: "off"
+  cloud:
+    function:
+      definition: convertPersonToAddress
+    stream:
+      kafka:
+        bindings:
+          convertPersonToAddress-in-0:
+            consumer:
+              enableDlq: true
+              dlqName: dead-out
+              autoCommitOnError: true
+              autoCommitOffset: true
+      bindings:
+        convertPersonToAddress-in-0:
+          destination: person-in
+          group: essential-for-the-test-with-embedded-kafka
+        convertPersonToAddress-out-0:
+          destination: address-out
