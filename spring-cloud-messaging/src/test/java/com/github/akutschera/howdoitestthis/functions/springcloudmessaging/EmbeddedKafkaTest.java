@@ -26,7 +26,8 @@ import org.springframework.test.context.ActiveProfiles;
  * Created by Andreas Kutschera.
  */
 @SpringBootTest(properties = {
-        "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"
+        "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}",
+        "spring.cloud.stream.kafka.bindings.convertPersonToAddress-in-0.consumer.ack-mode=BATCH"
 })
 @EmbeddedKafka(topics = { "person-in", "address-out" })
 @ActiveProfiles("kafka")

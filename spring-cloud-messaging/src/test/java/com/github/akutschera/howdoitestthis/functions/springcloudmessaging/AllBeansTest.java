@@ -77,7 +77,7 @@ public class AllBeansTest {
     void testFunction() throws IOException {
         inputDestination.send( MessageBuilder.withPayload( "{ \"name\": \"foo\" }" ).build(), "throughput-topic" );
 
-        var payload = outputDestination.receive().getPayload();
+        var payload = outputDestination.receive(1_000L, "conversion-output-topic").getPayload();
 
         var address = new ObjectMapper().readValue( payload, Address.class );
 
